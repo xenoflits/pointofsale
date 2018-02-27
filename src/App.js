@@ -22,6 +22,11 @@ class App extends Component {
   handleItemClick(obj){
     console.log(obj);
     let temp =  this.state.items;
+    /*let check = temp.includes(obj)
+    if (check){
+console.log(check)
+    }
+    else*/
     temp.push(obj);
     this.setState({
       items: temp

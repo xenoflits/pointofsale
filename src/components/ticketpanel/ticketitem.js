@@ -14,11 +14,13 @@ import React from 'react'
 }*/
 
 const TicketItem = (props) => {
+    const roundedCost = parseFloat(props.cost).toFixed(2);
 return(
+    
     <tr>
             <td>{props.quantity}</td>
             <td>{props.name}</td>
-            <td>{props.cost}</td>
+            <td>{roundedCost}</td>
         </tr>
 )
 }

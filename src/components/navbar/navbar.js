@@ -16,10 +16,10 @@ class Navbar extends React.Component {
           </div>
           <div className="controls">
             <div className="control-button">
-            signout <i class="fas fa-user"></i>
+            signout <i className="fas fa-user"></i>
             </div>
             <div className="control-button">
-              stats <i class="far fa-chart-bar"></i>
+              stats <i className="far fa-chart-bar"></i>
             </div>
              
           </div>

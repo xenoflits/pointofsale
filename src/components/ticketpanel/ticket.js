@@ -16,12 +16,14 @@ class Ticket extends React.Component {
 
     }
     render(){
-        let orderdisplay = this.props.items.map((order)=>{return <TicketItem quantity={order.quantity} name={order.name} cost={order.cost}/>})
+        let orderdisplay = this.props.items.map((order, i)=>{return <TicketItem key = {i} quantity={order.quantity} name={order.name} cost={order.cost}/>})
+        
         return(
             <div className="ticket">
                <table>
-               
+               <tbody>
                 {orderdisplay}
+                 </tbody>
                  </table>
                 
             </div>

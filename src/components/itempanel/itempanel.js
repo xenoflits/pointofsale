@@ -24,10 +24,10 @@ class Itempanel extends React.Component {
     }
 
     handleItems(e){
-        const currentItems = Items.map((item)=>{
+        const currentItems = Items.map((item, i)=>{
             
             if (item.category === e){
-                return (<Item name={item.name} cost={item.cost} obj={item} ItemClick={this.props.handleItemClick}/>)
+                return (<Item key = {i} name={item.name} cost={item.cost} obj={item} ItemClick={this.props.handleItemClick}/>)
             }
             else {
                 return( null)
@@ -65,8 +65,8 @@ class Itempanel extends React.Component {
  
 
     render(){
-       const cats = this.state.Categories.map((cats) =>
-    <Category name={cats} setMode={this.setMode}/>
+       const cats = this.state.Categories.map((cats, i) =>
+    <Category key = {i} name={cats} setMode={this.setMode}/>
     )
         
         if (this.state.Mode === "Categories"){
