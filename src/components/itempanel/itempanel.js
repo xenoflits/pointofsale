@@ -20,13 +20,14 @@ class Itempanel extends React.Component {
         this.setMode = this.setMode.bind(this);
         this.handleItems = this.handleItems.bind(this);
         this.handleBackClick = this.handleBackClick.bind(this);
+        //this.handleItemClick = this.handleItemClick.bind(this);
     }
 
     handleItems(e){
         const currentItems = Items.map((item)=>{
-            console.log(this.state.CurrentCat)
+            
             if (item.category === e){
-                return (<Item name={item.name} price={item.price} />)
+                return (<Item name={item.name} cost={item.cost} obj={item} ItemClick={this.props.handleItemClick}/>)
             }
             else {
                 return( null)
@@ -41,6 +42,10 @@ class Itempanel extends React.Component {
     handleBackClick(){
         this.setMode();
     }
+    /*handleItemClick(obj){
+        console.log(obj);
+    }*/
+    
 
     setMode(e){
         if (this.state.Mode === "Categories"){

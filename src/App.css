@@ -27,11 +27,14 @@ html, body, #root {
 }
 
 .ticket {
-  background-color: silver;
+  background-color: white;
   width: 490px;
   height: 98%;;
-    
   margin: auto;
+  display: grid;
+  grid-template-columns: 500px;
+  grid-template-rows: auto;
+  
 }
 
 
