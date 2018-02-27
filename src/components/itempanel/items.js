@@ -1,26 +1,26 @@
 const items = [
     {
-        name: "hamburger",
+        name: "Hamburger",
         cost: 1,
         category: "burgers"
     },
     {
-        name: "cheesburger",
+        name: "Cheeseburger",
         cost: 1.2,
         category: "burgers"
     },
     {
-        name: "fries",
+        name: "Fries",
         cost: 0.8,
         category: "sides"
     },
     {
-        name: "salade",
+        name: "Salad",
         cost: 1.25,
         category: "sides"
     },
     {
-        name: "twister-fries",
+        name: "Twister-Fries",
         cost: 1,
         category: "sides"
     },

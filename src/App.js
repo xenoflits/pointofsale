@@ -17,6 +17,7 @@ class App extends Component {
     }
     this.handleItemClick = this.handleItemClick.bind(this);
     this.newordernr = this.newordernr.bind(this);
+    this.cancel = this.cancel.bind(this);
   }
 
   handleItemClick(obj){
@@ -43,13 +44,23 @@ newordernr(){
   
 }
 
+cancel(){
+   this.setState({
+    items: []
+  })
+}
+
+cancelnotallowed(){
+  alert('cancel not possible during checkout');
+}
+
   render() {
     if (this.state.showCheckOut){
-      alert();
+      
       return (
         <div className="App">
         <Navbar />
-        <Ticketpanel neworder={this.newordernr} ordernr={this.state.ordernr} items={this.state.items} />
+        <Ticketpanel cancel={this.cancelnotallowed} neworder={this.newordernr} ordernr={this.state.ordernr} items={this.state.items} />
         
         <Checkout/>
       </div>
@@ -60,7 +71,7 @@ newordernr(){
     return (
       <div className="App">
         <Navbar />
-        <Ticketpanel neworder={this.newordernr} ordernr={this.state.ordernr} items={this.state.items} />
+        <Ticketpanel cancel={this.cancel} neworder={this.newordernr} ordernr={this.state.ordernr} items={this.state.items} />
         
         <Itempanel handleItemClick={this.handleItemClick} />
       </div>

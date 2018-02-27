@@ -1,10 +1,16 @@
 import React from 'react'
 
 class Checkout extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            checkoutvalue: 0
+        }
+    }
     render(){
         return(
             <div className="checkout"> 
-            <div className="amount"><input></input></div>
+            <div className="amount"><input className="amount-input"></input></div>
             <div className="checkout-nr">
             <Button nr="1" />
             <Button nr="2" />
@@ -25,7 +31,7 @@ class Checkout extends React.Component {
 }
 
 const Button = (props) => {
-    return (<div className="nrbutton">{props.nr}</div>)
+    return (<div className="nrbutton"><p>{props.nr}</p></div>)
 }
 
 export default Checkout

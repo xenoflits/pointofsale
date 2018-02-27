@@ -52,9 +52,9 @@ class Ticket extends React.Component {
                 </tbody>
             </table>
         
-            <div className="checkout">
+            <div className="buttons">
                 <button onClick={this.props.neworder} className="checkout-button">Checkout</button>
-                <button className="cancel-button">Cancel</button>
+                <button onClick={this.props.cancel} className="cancel-button">Cancel</button>
                 <button className="queue-button">Queue</button>
             </div>
         </div>
