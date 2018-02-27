@@ -18,9 +18,9 @@ const TicketItem = (props) => {
 return(
     
     <tr>
-            <td>{props.quantity}</td>
-            <td>{props.name}</td>
-            <td>{roundedCost}</td>
+            <td className="td-1">{props.quantity}</td>
+            <td className="td-2">{props.name}</td>
+            <td className="td-3">{roundedCost}</td>
         </tr>
 )
 }
