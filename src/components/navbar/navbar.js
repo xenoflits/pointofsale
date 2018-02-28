@@ -1,30 +1,30 @@
 import React from 'react'
 
 class Navbar extends React.Component {
-    constructor(){
-        super();
-        this.state = {
-            user: "Soeradj Mahabiersing",
 
+
+    render() {
+        let signed = "";
+        if (this.props.sstatus) {
+            signed = <div onClick={this.props.signout} className="control-button">
+                Sign-Out <i className="fas fa-user"></i>
+            </div>
         }
-    }
-    render(){
-        return(
+        else {
+            signed = <div onClick={this.props.signin} className="control-button">
+                Sign-In <i className="fas fa-user"></i>
+            </div>
+        }
+        return (
             <section className="navbar">
-          <div className="logo">
-            
-          </div>
-          <div className="controls">
-            <div className="control-button">
-            signout <i className="fas fa-user"></i>
-            </div>
-            <div className="control-button">
-              stats <i className="far fa-chart-bar"></i>
-            </div>
-             
-          </div>
-          <div>{this.state.user}</div>
-        </section>
+                <div className="logo">
+
+                </div>
+                <div className="controls">
+                    {signed}
+                </div>
+                <div className="currentuser">{this.props.cuser}</div>
+            </section>
         )
     }
 }

@@ -68,17 +68,17 @@ table {
 button {
 font-weight: 900;
 height: 70px;
-width: 140px;
-margin-left: 10px;
+width: 200px;
+margin-left: 26px;
 margin-right: 10px;
 margin-top: 10px;
 }
 .checkout-button {
-
+color: green;
 }
 
 .cancel-button {
-
+color: red;
 }
 
 .queue-button {
@@ -114,9 +114,7 @@ margin-top: 10px;
   
 }
 
-.otherpaymentsblock {
 
-}
 
 .nrbutton {
   width: 100px;
@@ -216,19 +214,25 @@ text-shadow: 0px 0px 3px #000;
   color: #fff;
   display: grid;
   grid-template-columns: 100px 1fr 100px;
+  grid-template-areas: "logo  controls  current"
 }
 
 .logo {
   background-image: url('./images/logo.png');
   align-items: stretch;
   background-size: cover;
+  grid-area: logo;
   
 }
 
 .controls {
-  display: grid;
-  grid-template-columns: 1fr 1fr 50px;
   text-align: right;
   font-size: 2rem;
+  grid-area: controls;
+  padding-right: 30px;
+}
+
+.currentuser {
+  grid-area: current;
 }
 

@@ -7,23 +7,27 @@ import Checkout from './components/ticketpanel/checkout'
 
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       items: [],
       ordernr: 1,
       showCheckOut: false,
-      totalamount: 0
+      totalamount: 0,
+      currentuser: "",
+      signedin: false
     }
     this.handleItemClick = this.handleItemClick.bind(this);
     this.newordernr = this.newordernr.bind(this);
     this.cancel = this.cancel.bind(this);
     this.nextnr = this.nextnr.bind(this);
+    this.signin = this.signin.bind(this);
+    this.signout = this.signout.bind(this);
   }
 
-  handleItemClick(obj){
+  handleItemClick(obj) {
     console.log(obj);
-    let temp =  this.state.items;
+    let temp = this.state.items;
     /*let check = temp.includes(obj)
     if (check){
 console.log(check)
@@ -33,59 +37,73 @@ console.log(check)
     this.setState({
       items: temp
     })
-}
+  }
 
-newordernr(total){
-  
-  this.setState({
-    
-    showCheckOut: true,
-    totalamount: total
-  })
-}
+  signin() {
 
-nextnr(){
-  this.setState({
-    ordernr: this.state.ordernr+1,
-    showCheckOut: false
-  })
-  this.cancel();
-}
+    this.setState({
+      signedin: true
+    })
+  }
 
-cancel(){
-   this.setState({
-    items: []
-  })
-}
+  signout() {
 
-cancelnotallowed(){
-  alert('cancel not possible during checkout');
-}
+    this.setState({
+      signedin: false
+    })
+  }
+
+  newordernr(total) {
+
+    this.setState({
+
+      showCheckOut: true,
+      totalamount: total
+    })
+  }
+
+  nextnr() {
+    this.setState({
+      ordernr: this.state.ordernr + 1,
+      showCheckOut: false
+    })
+    this.cancel();
+  }
+
+  cancel() {
+    this.setState({
+      items: []
+    })
+  }
+
+  cancelnotallowed() {
+    alert('cancel not possible during checkout');
+  }
 
   render() {
-    if (this.state.showCheckOut){
-      
+    if (this.state.showCheckOut) {
+
       return (
         <div className="App">
-        <Navbar />
-        <Ticketpanel cancel={this.cancelnotallowed} neworder={this.newordernr} ordernr={this.state.ordernr} items={this.state.items} />
-        
-        <Checkout nextnr={this.nextnr} total={this.state.totalamount}/>
-      </div>
+          <Navbar cuser={this.state.currentuser} sstatus={this.state.signedin} signin={this.signin} signout={this.signout} currentuser={this.state.currentuser} />
+          <Ticketpanel cancel={this.cancelnotallowed} neworder={this.newordernr} ordernr={this.state.ordernr} items={this.state.items} />
+
+          <Checkout nextnr={this.nextnr} total={this.state.totalamount} />
+        </div>
       )
     }
-    else{
+    else {
 
-    return (
-      <div className="App">
-        <Navbar />
-        <Ticketpanel cancel={this.cancel} neworder={this.newordernr} ordernr={this.state.ordernr} items={this.state.items} />
-        
-        <Itempanel handleItemClick={this.handleItemClick} />
-      </div>
-    );
+      return (
+        <div className="App">
+          <Navbar cuser={this.state.currentuser} sstatus={this.state.signedin} signin={this.signin} signout={this.signout} currentuser={this.state.currentuser} />
+          <Ticketpanel cancel={this.cancel} neworder={this.newordernr} ordernr={this.state.ordernr} items={this.state.items} />
+
+          <Itempanel handleItemClick={this.handleItemClick} />
+        </div>
+      );
+    }
   }
-}
 }
 
 export default App;

@@ -80,20 +80,21 @@ class Checkout extends React.Component {
         const Buttons = ButtonNrs.map((button, i) => <Button key={i} handleOk={this.handleOk} handleClear={this.handleClear} handleNr={this.handleNr} obj={button} />)
         return (
             <div className="checkout">
-                <div className="checkout-left">
-                    <div className="amount"><label className="amount-input">{received}</label></div>
-                    <div className="checkout-nr">
-                        {Buttons}
-
-                        <img className="other-p" src={otherpayments} alt="otherpaymentoptions" />
-                    </div>
-                </div>
+                
                 <div className="checkout-right">
                     <img onClick={()=>this.handleBill(500)} className="bills" src={fiveeuro} alt="5euro" />
                     <img onClick={()=>this.handleBill(1000)}className="bills" src={teneuro} alt="10euro" />
                     <img onClick={()=>this.handleBill(2000)}className="bills" src={twentyeuro} alt="20euro" />
                     <img onClick={()=>this.handleBill(5000)}className="bills" src={fiftyeuro} alt="50euro" />
 
+                </div>
+                <div className="checkout-left">
+                    
+                    <div className="checkout-nr">
+                        {Buttons}
+
+                        <img className="other-p" src={otherpayments} alt="otherpaymentoptions" />
+                    </div>
                 </div>
                 <div className="calculate">
                     <h1>Total Amount:</h1>

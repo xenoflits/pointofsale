@@ -61,7 +61,7 @@ class Ticket extends React.Component {
                 <div className="buttons">
                     <button onClick={() => this.newOrder(subtotal)} className="checkout-button">Checkout</button>
                     <button onClick={this.props.cancel} className="cancel-button">Cancel</button>
-                    <button className="queue-button">Queue</button>
+                    
                 </div>
             </div>
         )
