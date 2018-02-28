@@ -20,7 +20,7 @@ class Itempanel extends React.Component {
         this.setMode = this.setMode.bind(this);
         this.handleItems = this.handleItems.bind(this);
         this.handleBackClick = this.handleBackClick.bind(this);
-        //this.handleItemClick = this.handleItemClick.bind(this);
+       
     }
 
     handleItems(e){

@@ -50,7 +50,7 @@ class Checkout extends React.Component {
         })    
         }else {
         let displaytemp = this.state.display.join('');
-        let displaytemp2 = parseInt(displaytemp) + parseInt(bill);
+        let displaytemp2 = parseInt(displaytemp, 10) + parseInt(bill, 10);
         let displaytemp3 = displaytemp2.toString().split('');
         
         this.setState({

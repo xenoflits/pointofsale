@@ -16,7 +16,6 @@ class Category extends React.Component {
     render(){
         return(<div className="cat" onClick={this.handleClick} id={this.props.name}>
         {this.props.name}
-            
         </div>)
     }
 }

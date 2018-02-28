@@ -28,7 +28,8 @@ class Ticket extends React.Component {
             if (!mp.has(o.name)) mp.set(o.name, Object.assign({ quantity: 0 }, o));
             mp.get(o.name).quantity++;
             return mp;
-        }, new Map).values()];
+            
+        }, new Map()).values()];
         //this generates the items on the tickets and calculates the total cost per item
         let orderdisplay = result.map((order, i) => { return <TicketItem key={i} quantity={order.quantity} name={order.name} cost={order.cost * order.quantity} /> })
         //this calculates the total amount on the ticket
