@@ -44,7 +44,7 @@ class Ticket extends React.Component {
 
                 <div className="ticket-header">
                     <h1>Order: {this.props.ordernr}</h1>
-                    <h1>Waiter: Soeradj Mahabiersing</h1>
+                    <h1>Waiter: {this.props.currentuser}</h1>
                 </div>
 
                 <table>

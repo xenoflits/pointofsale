@@ -45,7 +45,7 @@ class Button extends React.Component{
     }
 
     render(){
-        return(<div onClick={this.clickHandle}className="nrbutton"><p>{this.props.obj}</p></div>)
+        return(<div id={this.props.id}onClick={this.clickHandle}className="nrbutton"><p>{this.props.obj}</p></div>)
     }
 }
 

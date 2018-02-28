@@ -42,9 +42,7 @@ class Itempanel extends React.Component {
     handleBackClick(){
         this.setMode();
     }
-    /*handleItemClick(obj){
-        console.log(obj);
-    }*/
+
     
 
     setMode(e){

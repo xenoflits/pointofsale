@@ -77,7 +77,7 @@ class Checkout extends React.Component {
         }
         //map for the buttons
         const ButtonNrs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "x", "0", "ok"];
-        const Buttons = ButtonNrs.map((button, i) => <Button key={i} handleOk={this.handleOk} handleClear={this.handleClear} handleNr={this.handleNr} obj={button} />)
+        const Buttons = ButtonNrs.map((button, i) => <Button id={button} key={i} handleOk={this.handleOk} handleClear={this.handleClear} handleNr={this.handleNr} obj={button} />)
         return (
             <div className="checkout">
                 

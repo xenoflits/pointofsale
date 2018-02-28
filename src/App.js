@@ -4,6 +4,7 @@ import Navbar from './components/navbar/navbar'
 import Ticketpanel from './components/ticketpanel/ticketpanel'
 import './App.css';
 import Checkout from './components/ticketpanel/checkout'
+import Password from './password'
 
 
 class App extends Component {
@@ -15,7 +16,8 @@ class App extends Component {
       showCheckOut: false,
       totalamount: 0,
       currentuser: "",
-      signedin: false
+      signedin: false,
+      password: false
     }
     this.handleItemClick = this.handleItemClick.bind(this);
     this.newordernr = this.newordernr.bind(this);
@@ -23,16 +25,14 @@ class App extends Component {
     this.nextnr = this.nextnr.bind(this);
     this.signin = this.signin.bind(this);
     this.signout = this.signout.bind(this);
+    this.cancelnotallowed = this.cancelnotallowed.bind(this);
+    this.signinaccepted = this.signinaccepted.bind(this);
+    this.getName = this.getName.bind(this);
   }
 
   handleItemClick(obj) {
     console.log(obj);
     let temp = this.state.items;
-    /*let check = temp.includes(obj)
-    if (check){
-console.log(check)
-    }
-    else*/
     temp.push(obj);
     this.setState({
       items: temp
@@ -40,17 +40,28 @@ console.log(check)
   }
 
   signin() {
-
     this.setState({
-      signedin: true
+      password: true
+    })
+  }
+
+  signinaccepted(){
+    this.setState({
+      signedin: true,
+      password: false
     })
   }
 
   signout() {
-
-    this.setState({
-      signedin: false
-    })
+    if (this.state.showCheckOut) {
+      alert('Signing out during checkout is not allowed')
+    }
+    else {
+      this.setState({
+        signedin: false,
+        currentuser: ""
+      })
+    }
   }
 
   newordernr(total) {
@@ -77,7 +88,16 @@ console.log(check)
   }
 
   cancelnotallowed() {
-    alert('cancel not possible during checkout');
+    this.setState({
+      items: [],
+      showCheckOut: false
+    })
+  }
+
+  getName(name){
+    this.setState({
+      currentuser: name
+    })
   }
 
   render() {
@@ -86,8 +106,8 @@ console.log(check)
       return (
         <div className="App">
           <Navbar cuser={this.state.currentuser} sstatus={this.state.signedin} signin={this.signin} signout={this.signout} currentuser={this.state.currentuser} />
-          <Ticketpanel cancel={this.cancelnotallowed} neworder={this.newordernr} ordernr={this.state.ordernr} items={this.state.items} />
 
+          <Ticketpanel currentuser={this.state.currentuser} cancel={this.cancelnotallowed} neworder={this.newordernr} ordernr={this.state.ordernr} items={this.state.items} />
           <Checkout nextnr={this.nextnr} total={this.state.totalamount} />
         </div>
       )
@@ -97,9 +117,14 @@ console.log(check)
       return (
         <div className="App">
           <Navbar cuser={this.state.currentuser} sstatus={this.state.signedin} signin={this.signin} signout={this.signout} currentuser={this.state.currentuser} />
-          <Ticketpanel cancel={this.cancel} neworder={this.newordernr} ordernr={this.state.ordernr} items={this.state.items} />
-
-          <Itempanel handleItemClick={this.handleItemClick} />
+          {this.state.signedin &&
+            <Ticketpanel currentuser={this.state.currentuser} cancel={this.cancel} neworder={this.newordernr} ordernr={this.state.ordernr} items={this.state.items} />}
+          {this.state.signedin &&
+            <Itempanel handleItemClick={this.handleItemClick} />}
+          {this.state.password &&
+            <div className="empty"></div>}
+          {this.state.password &&
+          <Password getName={this.getName} signinaccepted={this.signinaccepted}/>}
         </div>
       );
     }

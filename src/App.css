@@ -18,12 +18,47 @@ html, body, #root {
   grid-template-rows: 100px 1fr;  
   grid-template-areas: "nav nav"  "ticket item"
 }
+/*password*/
+.password {
+  background-color:rgb(123, 90, 90);
+  font-size: 2rem;
+  padding: 20px;
+}
+input {
+  display: block;
+  height: 2rem;
+  width: 300px;
+  margin-bottom: 20px;
+  background-color: rgb(153, 90, 90);
+}
+
+.buttonpassword{
+  margin-left: 0;
+  margin-top: 20px;
+  width: 300px;
+}
+
+.testingpassword{
+  display: block;
+}
+
+.errorlabel {
+  font-weight: 900;
+  font-size: 1rem;
+  color: red;
+  display: block;
+}
+
 
 /*ticketpanel*/
 .ticketpanel {
   background-color: rgb(153, 90, 90);
   grid-area: ticket;
   border: 2px solid black;
+}
+
+.empty {
+  background-color: rgb(153, 90, 90); 
 }
 
 .ticket {
@@ -72,6 +107,13 @@ width: 200px;
 margin-left: 26px;
 margin-right: 10px;
 margin-top: 10px;
+}
+
+#ok{
+  background-color: green;
+}
+#x {
+  background-color: red;
 }
 .checkout-button {
 color: green;

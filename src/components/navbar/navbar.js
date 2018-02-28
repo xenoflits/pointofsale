@@ -13,6 +13,7 @@ class Navbar extends React.Component {
         else {
             signed = <div onClick={this.props.signin} className="control-button">
                 Sign-In <i className="fas fa-user"></i>
+               
             </div>
         }
         return (
