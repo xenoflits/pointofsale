@@ -17,7 +17,7 @@ class Ticket extends React.Component {
             alert("Can't checkout when the bill is 0")
         }
         else {
-            this.props.neworder();
+            this.props.neworder(subtotal);
         }
     }
 

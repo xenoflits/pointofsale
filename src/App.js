@@ -10,14 +10,15 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      items: [
-  ],
-  ordernr: 1,
-  showCheckOut: false
+      items: [],
+      ordernr: 1,
+      showCheckOut: false,
+      totalamount: 0
     }
     this.handleItemClick = this.handleItemClick.bind(this);
     this.newordernr = this.newordernr.bind(this);
     this.cancel = this.cancel.bind(this);
+    this.nextnr = this.nextnr.bind(this);
   }
 
   handleItemClick(obj){
@@ -34,14 +35,21 @@ console.log(check)
     })
 }
 
-newordernr(){
+newordernr(total){
   
   this.setState({
-    ordernr: this.state.ordernr+1,
-    showCheckOut: true
+    
+    showCheckOut: true,
+    totalamount: total
   })
-  
-  
+}
+
+nextnr(){
+  this.setState({
+    ordernr: this.state.ordernr+1,
+    showCheckOut: false
+  })
+  this.cancel();
 }
 
 cancel(){
@@ -62,7 +70,7 @@ cancelnotallowed(){
         <Navbar />
         <Ticketpanel cancel={this.cancelnotallowed} neworder={this.newordernr} ordernr={this.state.ordernr} items={this.state.items} />
         
-        <Checkout/>
+        <Checkout nextnr={this.nextnr} total={this.state.totalamount}/>
       </div>
       )
     }
